@@ -13,7 +13,6 @@ function atualizarPalavraTentativa() {
 function inserirTexto(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-    
 }
 
 exibirMensagemInicial();
