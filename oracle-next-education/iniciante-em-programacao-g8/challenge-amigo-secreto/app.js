@@ -1,10 +1,29 @@
 let nomes = [];
+let nomesJaEscolhidos = [];
+let lista = document.querySelector("#listaAmigos");
 
 let campoResultado = document.getElementById("resultado");
 
 function atualizarMensagem(mensagem, cor){
     campoResultado.innerHTML = mensagem;
     campoResultado.style.color = cor;
+}
+
+function mostrarAmigosDaLista() {
+    lista.innerHTML = "";
+
+    for (let i = 0; i < nomes.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = nomes[i];
+        lista.appendChild(item);
+    }
+}
+
+function novoSorteio(){
+    nomes = [];
+    nomesJaEscolhidos = [];
+    lista.innerHTML = "";
+    atualizarMensagem("", "black");
 }
 
 function adicionarAmigo(){
@@ -23,19 +42,23 @@ function adicionarAmigo(){
         nomes.push(nome);
         atualizarMensagem("Amigo adicionado com sucesso", "black");
         document.querySelector("input").value = "";
+        mostrarAmigosDaLista();
     }
 }
 
-function sortearAmigo(){
-    if(nomes.length == 0){
+function sortearAmigo() {
+    if (nomes.length === 0) {
         atualizarMensagem("Por favor, digite os nomes dos amigos", "black");
     }
-    else if (nomes.length == 1){
-        atualizarMensagem("Por favor, digite mais de um amigo", "black");
-    }
-    else{
+    else if (nomes.length === 1) {
+        atualizarMensagem("Só há um amigo na lista, sorteio impossível!", "black");
+    } 
+    else {
         let indice = Math.floor(Math.random() * nomes.length);
-        let resultado = nomes[indice];
-        atualizarMensagem(`O amigo sorteado foi o: ${resultado}`, "green");
+        let amigoSorteado = nomes[indice];
+
+        nomes.splice(indice, 1);
+        atualizarMensagem(`O amigo sorteado foi: ${amigoSorteado}`, "green");
+        mostrarAmigosDaLista();
     }
 }

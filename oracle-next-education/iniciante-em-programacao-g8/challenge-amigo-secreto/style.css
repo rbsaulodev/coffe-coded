@@ -88,8 +88,10 @@ body {
 }
 
 .button-container {
-    width: 300px;
+    width: 600px;
+    display: flex;
     justify-content: center;
+    gap: 1rem;
 }
 
 /* Estilos de entrada de texto */
@@ -142,21 +144,52 @@ ul {
     text-align: center;
 }
 
-/* Botão de sortear título */
-.button-draw {
+.button-draw, .button-reset {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
     padding: 10px 40px;
     color: var(--color-white);
-    background-color: var(--color-button);
     font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.button-draw img {
-    margin-right: 40px;
+.button-draw {
+    background-color: var(--color-button);
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.button-reset {
+    background-color: var(--color-primary);
+}
+
+.button-reset:hover {
+    background-color: #3b55d6;
+}
+
+.name-list {
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0; 
+    margin: 0;
+}
+
+.name-list li {
+    font-weight: bold;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-family: "Inter", sans-serif;
 }
