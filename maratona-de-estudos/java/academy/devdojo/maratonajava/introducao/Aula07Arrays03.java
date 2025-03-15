@@ -13,9 +13,14 @@ public class Aula07Arrays03 {
         System.out.println("");
         System.out.println("Foreach");
 
+        for (int i : number) {
+            System.out.println(i);
+        }
+        
         for (int i : number2) {
             System.out.println(i);
         }
+
 
     }
 }
