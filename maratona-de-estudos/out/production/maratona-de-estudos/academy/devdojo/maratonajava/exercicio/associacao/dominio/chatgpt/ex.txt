@@ -1,0 +1,14 @@
+Crie um sistema que gerencie cursos online.
+
+O sistema deverá cadastrar cursos, alunos, professores e a plataforma onde será realizado.
+
+- Um aluno poderá estar matriculado em vários cursos.
+- Um curso poderá ter nenhum ou vários alunos matriculados.
+- Um professor poderá ministrar vários cursos.
+- Um curso deve ser oferecido em uma plataforma específica.
+
+Campos básicos (excluindo relacionamento):
+- **Curso:** título, duração (em horas).
+- **Aluno:** nome, idade, e-mail.
+- **Professor:** nome, especialização.
+- **Plataforma:** nome, site oficial.
