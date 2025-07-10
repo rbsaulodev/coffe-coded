@@ -24,7 +24,7 @@ public class Main {
 
         while (opcao!= 9) {
             var menu = """
-                    *** Screen Sound Músicas ***                    
+                    ***  ***                    
                                         
                     1- Cadastrar artistas
                     2- Cadastrar músicas
