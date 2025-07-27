@@ -29,9 +29,8 @@ public class DoctorService {
         return doctorMapper.toDTO(savedDoctor);
     }
 
-    public Page<DoctorListDTO> listDoctors(Pageable page){
-        return doctorRepository.findAllByActiveTrue(page)
-                .map(DoctorListDTO::new);
+    public Page<DoctorListDTO> listDoctors(Pageable page) {
+        return doctorRepository.findAllByActiveTrue(page).map(DoctorListDTO::new);
     }
 
     @Transactional
@@ -39,7 +38,7 @@ public class DoctorService {
         Doctor doctor = doctorRepository.findById(data.id())
                 .orElseThrow(() -> new EntityNotFoundException("Médico com ID " + data.id() + " não encontrado."));
 
-        doctor.updateInfo(data);
+        doctor.updateDoctor(data);
         return doctorMapper.toDTO(doctorRepository.save(doctor));
     }
 

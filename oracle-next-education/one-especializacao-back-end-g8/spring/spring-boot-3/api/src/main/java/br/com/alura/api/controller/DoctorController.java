@@ -33,10 +33,11 @@ public class DoctorController {
     }
 
     @GetMapping
-    public Page<DoctorListDTO> listAllDoctors(
+    public ResponseEntity<Page<DoctorListDTO>> listAllDoctors(
             @PageableDefault(size = 10, sort = {"name"}) Pageable page
     ){
-        return doctorService.listDoctors(page);
+        Page<DoctorListDTO> doctor = doctorService.listDoctors(page);
+        return ResponseEntity.ok(doctor);
     }
 
     @PutMapping
