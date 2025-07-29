@@ -6,15 +6,20 @@ import jakarta.validation.constraints.Pattern;
 public record AddressDTO(
         @NotBlank
         String street,
-        String complement,
-        int addressNumber,
+
         @NotBlank
         String neighborhood,
+
+        @NotBlank
+        @Pattern(regexp = "\\d{8}", message = "Zip code must be 8 digits.")
+        String zipCode,
+
         @NotBlank
         String city,
+
         @NotBlank
         String state,
-        @NotBlank
-        @Pattern(regexp = "\\d{8}")
-        String zipCode
+
+        int addressNumber,
+        String complement
 ) {}

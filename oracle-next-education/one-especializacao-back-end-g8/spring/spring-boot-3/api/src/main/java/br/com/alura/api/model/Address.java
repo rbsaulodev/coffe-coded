@@ -22,6 +22,16 @@ public class Address {
     private String state;
     private String zipCode;
 
+    public Address(AddressDTO dto) {
+        this.street = dto.street();
+        this.neighborhood = dto.neighborhood();
+        this.zipCode = dto.zipCode();
+        this.city = dto.city();
+        this.state = dto.state();
+        this.addressNumber = dto.addressNumber();
+        this.complement = dto.complement();
+    }
+
     public void updateAddress(AddressDTO data) {
         if (data.street() != null) {
             this.street = data.street();

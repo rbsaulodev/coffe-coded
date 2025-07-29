@@ -1,5 +1,6 @@
 package br.com.alura.api.model;
 
+import br.com.alura.api.model.dto.DoctorRegistrationDTO;
 import br.com.alura.api.model.dto.DoctorUpdateDTO;
 import br.com.alura.api.model.enums.Specialty;
 import jakarta.persistence.*;
@@ -19,7 +20,7 @@ public class Doctor {
     private String email;
     private String doctorNumber;
     private String crm;
-    private Boolean active;
+    private Boolean isActive;
 
     @Enumerated(EnumType.STRING)
     private Specialty specialty;
@@ -36,5 +37,16 @@ public class Doctor {
         if (findDoctor.address() != null){
             this.address.updateAddress(findDoctor.address());
         }
+    }
+
+
+    public Doctor(DoctorRegistrationDTO dto) {
+        this.isActive = true;
+        this.name = dto.name();
+        this.email = dto.email();
+        this.doctorNumber = dto.phone();
+        this.crm = dto.crm();
+        this.specialty = dto.specialty();
+        this.address = new Address(dto.address());
     }
 }

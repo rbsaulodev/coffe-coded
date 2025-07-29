@@ -1,0 +1,1 @@
+ALTER TABLE doctors RENAME COLUMN active TO is_active;

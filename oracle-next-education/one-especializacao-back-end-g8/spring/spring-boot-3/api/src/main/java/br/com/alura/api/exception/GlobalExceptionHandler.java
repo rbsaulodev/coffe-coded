@@ -1,4 +1,4 @@
-package br.com.alura.api.excpetion;
+package br.com.alura.api.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +21,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errors.stream().map(errorDTO::new).toList());
     }
 
+    @ExceptionHandler(BusinessRuleException.class)
+    public ResponseEntity<DataErrorAPI> handleBusinessRuleException(BusinessRuleException ex) {
+        return ResponseEntity.badRequest().body(new DataErrorAPI(ex.getMessage()));
+    }
 
     private record errorDTO(String campo, String msg){
         public errorDTO(FieldError error){

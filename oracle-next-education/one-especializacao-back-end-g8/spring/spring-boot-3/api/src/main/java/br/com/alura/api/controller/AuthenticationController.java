@@ -4,6 +4,7 @@ import br.com.alura.api.model.User;
 import br.com.alura.api.model.dto.LoginDTO;
 import br.com.alura.api.model.dto.jwtDTO;
 import br.com.alura.api.service.JwtService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

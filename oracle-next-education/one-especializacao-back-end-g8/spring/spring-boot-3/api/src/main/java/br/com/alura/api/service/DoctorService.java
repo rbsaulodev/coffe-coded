@@ -30,7 +30,7 @@ public class DoctorService {
     }
 
     public Page<DoctorListDTO> listDoctors(Pageable page) {
-        return doctorRepository.findAllByActiveTrue(page).map(DoctorListDTO::new);
+        return doctorRepository.findAllByIsActiveTrue(page).map(DoctorListDTO::new);
     }
 
     @Transactional
@@ -46,7 +46,7 @@ public class DoctorService {
     public void deactivateDoctor(Long id) {
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Médico com ID " + id + " não encontrado."));
-        doctor.setActive(false);
+        doctor.setIsActive(false);
     }
 
     public DoctorDTO findDoctorById(Long id) {

@@ -4,6 +4,7 @@ import br.com.alura.api.model.dto.DoctorDTO;
 import br.com.alura.api.model.dto.DoctorListDTO;
 import br.com.alura.api.model.dto.DoctorUpdateDTO;
 import br.com.alura.api.service.DoctorService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/doctors")
+@SecurityRequirement(name = "bearer-key")
 public class DoctorController {
 
     private final DoctorService doctorService;
